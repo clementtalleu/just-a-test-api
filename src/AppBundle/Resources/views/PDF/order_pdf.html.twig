@@ -1,0 +1,15 @@
+<html>
+<meta charset="UTF-8" />
+    <p>
+        Votre commande porte le numéro {{ order.id }} <br />
+
+        Montant : {{ order.totalPrice }} € <br />
+
+        Produits : <br />
+        <ul>
+            {% for product in order.products %}
+                <li>{{ product.name }} (prix : {{ product.price }}</li>
+            {% endfor %}
+        </ul>
+    </p>
+</html>

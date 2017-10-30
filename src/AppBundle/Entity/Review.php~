@@ -1,0 +1,155 @@
+<?php
+
+// src/AppBundle/Entity/Review.php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * A review of a book.
+ *
+ * @ORM\Entity
+ */
+class Review
+{
+    /**
+     * @var int The id of this review.
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+
+    /**
+     * @var int The rating of this review (between 0 and 5).
+     *
+     * @ORM\Column(type="smallint")
+     */
+    private $rating;
+
+    /**
+     * @var string the body of the review.
+     *
+     * @ORM\Column(type="text")
+     */
+    private $body;
+
+    /**
+     * @var string The author of the review.
+     *
+     * @ORM\Column
+     */
+    private $author;
+
+    /**
+     * @var \DateTimeInterface The date of publication of this review.
+     *
+     * @ORM\Column(type="datetime")
+     */
+    private $publicationDate;
+
+    /**
+     * @var Book The book this review is about.
+     *
+     * @ORM\ManyToOne(targetEntity="Book", inversedBy="reviews")
+     */
+    private $book;
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * @param int $rating
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBody()
+    {
+        return $this->body;
+    }
+
+    /**
+     * @param string $body
+     */
+    public function setBody($body)
+    {
+        $this->body = $body;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * @param string $author
+     */
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+    }
+
+    /**
+     * @return \DateTimeInterface
+     */
+    public function getPublicationDate()
+    {
+        return $this->publicationDate;
+    }
+
+    /**
+     * @param \DateTimeInterface $publicationDate
+     */
+    public function setPublicationDate($publicationDate)
+    {
+        $this->publicationDate = $publicationDate;
+    }
+
+    /**
+     * @return Book
+     */
+    public function getBook()
+    {
+        return $this->book;
+    }
+
+    /**
+     * @param Book $book
+     */
+    public function setBook($book)
+    {
+        $this->book = $book;
+    }
+}
