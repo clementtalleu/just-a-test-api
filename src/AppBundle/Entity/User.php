@@ -37,7 +37,7 @@ class User extends BaseUser
     protected $username;
 
     /**
-     * @Groups({"user_read"})
+     * @Groups({"user_read", "user_write"})
      */
     protected $plainPassword;
 
