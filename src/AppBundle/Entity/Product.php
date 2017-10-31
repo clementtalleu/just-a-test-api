@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -12,8 +13,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity
  * @ApiResource(attributes={
  *     "normalization_context"={"groups"={"product_read"}},
- *     "denormalization_context"={"groups"={"product_write"}}
+ *     "denormalization_context"={"groups"={"product_write"}},
+ *     "filters"={"product.search"}
  * })
+ * @UniqueEntity("name")
  */
 class Product
 {
@@ -29,7 +32,7 @@ class Product
 
     /**
      * @var string|null
-     * @ORM\Column(nullable=true)
+     * @ORM\Column(name="name", nullable=true)
      * @Groups({"product_read", "product_write"})
      */
     private $name;
