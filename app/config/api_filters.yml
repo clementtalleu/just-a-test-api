@@ -15,3 +15,8 @@ services:
         parent:    'api_platform.doctrine.orm.search_filter'
         arguments: [ { name: 'partial' } ]
         tags:      [ { name: 'api_platform.filter', id: 'product.search' } ]
+
+    user.search_filter:
+        parent:    'api_platform.doctrine.orm.search_filter'
+        arguments: [ { username: 'partial' } ]
+        tags:      [ { name: 'api_platform.filter', id: 'user.search' } ]

@@ -12,7 +12,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ORM\Table(name="user")
  * @ApiResource(attributes={
  *     "normalization_context"={"groups"={"user_read"}},
- *     "denormalization_context"={"groups"={"user_write"}}
+ *     "denormalization_context"={"groups"={"user_write"}},
+ *     "filters"={"user.search"}
  * })
  */
 class User extends BaseUser
